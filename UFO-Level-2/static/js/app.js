@@ -26,8 +26,10 @@ var button = d3.select("#filter-btn");
 var form = d3.select("form");
 
 // Create event handlers for clicking the button or pressing the enter key
-button.on("click", runEnter);
 form.on("submit",runEnter);
+button.on("click", runEnter);
+
+
 
 // Create the function to run for both events
 function runEnter() {
@@ -37,7 +39,7 @@ function runEnter() {
 
     tbody.html("");
 
-  // Select the input element and get the raw HTML node
+  // Select the input element and get the raw HTML 
     var inputDateTime = d3.select("#datetime");
     var inputCity = d3.select("#city")
     var inputState = d3.select("#state")
@@ -90,6 +92,8 @@ function runEnter() {
         //console.log(filteredUfo);
       //append to the body as a table row
         var row = tbody.append("tr");
+        form.on("submit",runEnter);
+        button.on("click", runEnter);
 
         Object.entries(filteredUfo).forEach(function([key, value]){
             //console.log(key, value)
@@ -99,7 +103,8 @@ function runEnter() {
       });
     }
     else{
-      alert("No Result My Alien Friend.")
+      alert("No Results My Fellow Alien.")
     }
 
     };
+    
