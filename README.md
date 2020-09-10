@@ -1,4 +1,4 @@
-# javascript_challenge
+# Alien: JavaScript Challenge :alien:
 JavaScript and DOM manipulation
 
 ### **WAKE UP SHEEPLE!**
@@ -7,8 +7,9 @@ There is just one tiny problem though... our collection is too large to search t
 
 That's why we are hiring you. We need you to write code that will create a table dynamically based upon a dataset we provide. We also need to allow our users to filter the table data for specific values. There's a catch though... we only use pure JavaScript, HTML, and CSS, and D3.js on our web pages. They are the only coding languages which can be trusted.
 You can handle this... right? The planet Earth needs to know what we have found!
+![Image of Alien Ships](javascript_challenge/UFO-Level-2/images/ufosky.jpg)
 
-### **Assignment Level 1 (required): Automatic Table and Date Search** :alien:
+### **Assignment Level 1 (required): Automatic Table and Date Search** 
 
 Create a basic HTML web page or use the index.html file provided (we recommend building your own custom page!).
 
