@@ -1,12 +1,16 @@
 // from data.js
 var tableData = data;
-
-
+// Select the button
+var button = d3.select("#filter-btn");
+// Select the form
+var form = d3.select("form");
 //Make sure to get a ref to the tablebody/tbody
 var tbody = d3.select("tbody");
-console.log(tbody);
 
-//Make a function to loop through the data 
+//console.log(tbody);
+
+
+//Make a function to loop through the data.js
 data.forEach(function(ufoStuff){
     //console.log(ufoStuff);
     //append to the body as a table row
@@ -19,11 +23,7 @@ data.forEach(function(ufoStuff){
     })
 });
 
-// Select the button
-var button = d3.select("#filter-btn");
 
-// Select the form
-var form = d3.select("form");
 
 // Create event handlers for clicking the button or pressing the enter key
 form.on("submit",runEnter);
@@ -80,11 +80,6 @@ function runEnter() {
 
     console.log(filteredData);
 
-  // Set the span tag in the h1 element to the text
-  // that was entered in the form
-    //d3.select("h1>span").text(inputValue);
-
-
 //Make a function to loop through the data 
     if (filteredData.length >= 1) {
       tbody.html("");
@@ -92,9 +87,7 @@ function runEnter() {
         //console.log(filteredUfo);
       //append to the body as a table row
         var row = tbody.append("tr");
-        form.on("submit",runEnter);
-        button.on("click", runEnter);
-
+      
         Object.entries(filteredUfo).forEach(function([key, value]){
             //console.log(key, value)
           var cell = row.append("td");
