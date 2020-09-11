@@ -1,10 +1,14 @@
 // from data.js
 var tableData = data;
-
-
 //Make sure to get a ref to the tablebody/tbody
 var tbody = d3.select("tbody");
+//check out the tbody in console log
 console.log(tbody);
+// Select the button
+var button = d3.select("#filter-btn");
+// Select the form
+var form = d3.select("form");
+
 
 //Make a function to loop through the data 
 data.forEach(function(ufoStuff){
@@ -19,17 +23,12 @@ data.forEach(function(ufoStuff){
     })
 });
 
-// Select the button
-var button = d3.select("#filter-btn");
 
-// Select the form
-var form = d3.select("form");
-
-// Create event handlers for clicking the button or pressing the enter key
+// Create event handlers for clicking the button or pressing the enter key. I tried 'submit' but it was causing issues so I changed to 'change'
 button.on("click", runEnter);
-form.on("submit",runEnter);
+form.on("change",runEnter);
 
-// Create the function to run for both events
+// I need to create a function to run for both events
 function runEnter() {
     console.log(d3.event.target)
   // Prevent the page from refreshing
@@ -44,24 +43,18 @@ function runEnter() {
     var inputValue = inputElement.property("value");
 
   // Print the value to the console
-    //console.log(inputValue);
-
+  // console.log(inputValue);
+  // Create a variable for the filteredData and bring in the input value
     var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
-
+  // console.log the filteredData var
     console.log(filteredData);
 
-  // Set the span tag in the h1 element to the text
-  // that was entered in the form
-    //d3.select("h1>span").text(inputValue);
-
-
-//Make a function to loop through the data 
+//Make another function to loop through the filtereddata. This is a lot like the movie activity. 
     filteredData.forEach(function(filteredUfo){
         console.log(filteredUfo);
     //append to the body as a table row
         var row = tbody.append("tr");
-
-        Object.entries(filteredUfo).forEach(function([key, value]){
+          Object.entries(filteredUfo).forEach(function([key, value]){
             console.log(key, value)
         var cell = row.append("td");
             cell.text(value).style("color","white");

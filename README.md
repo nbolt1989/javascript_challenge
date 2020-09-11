@@ -34,7 +34,11 @@ state
 country
 shape*
 
+**Notes**
+*I kept Level 1 basic and did not alter the HTML/CSS much. However, I changed around some things on level 2 such as: the background image, the footer, the title and subtitlte animation and a few other small tweaks. 
+
 **Instructions:**
+
 Level 1:
 * Input a date into the date search field (the format is M/DD/YYY)
 * Hit the 'filter table' button

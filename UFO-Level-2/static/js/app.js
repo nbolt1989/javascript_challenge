@@ -1,3 +1,5 @@
+//---This will essentially be a copy of level 1 with some tweaks like a conditional and more input and value property variables.
+//--------------------------
 // from data.js
 var tableData = data;
 // Select the button
@@ -8,7 +10,6 @@ var form = d3.select("form");
 var tbody = d3.select("tbody");
 
 //console.log(tbody);
-
 
 //Make a function to loop through the data.js
 data.forEach(function(ufoStuff){
@@ -23,13 +24,9 @@ data.forEach(function(ufoStuff){
     })
 });
 
-
-
-// Create event handlers for clicking the button or pressing the enter key
-form.on("submit",runEnter);
+// Create event handlers for clicking the button or pressing the enter key. I tried 'submit' but it was causing issues so I changed to 'change'
+form.on("change",runEnter);
 button.on("click", runEnter);
-
-
 
 // Create the function to run for both events
 function runEnter() {
@@ -39,14 +36,14 @@ function runEnter() {
 
     tbody.html("");
 
-  // Select the input element and get the raw HTML 
+  // Select the input element and get the raw HTML; I will need more inputs here for the other search criteria
     var inputDateTime = d3.select("#datetime");
     var inputCity = d3.select("#city")
     var inputState = d3.select("#state")
     var inputCountry = d3.select("#country")
     var inputShape = d3.select("#shape")
 
-  // Get the value property of the input element
+  // Get the value property of the input element; I will need value properties here connected to the input elements.
     var ValueDateTime = inputDateTime.property("value");
     var ValueCity = inputCity.property("value");
     var ValueState = inputState.property("value");
@@ -57,8 +54,9 @@ function runEnter() {
   // Print the value to the console
     //console.log(inputValueDateTime);
 
-    ///var filteredData = tableData.filter(tableData => tableData.datetime === inputValueDateTime.toLowerCase());
+  // Worked with a teammate on this code for line 58. 
     var filteredData = [...tableData];
+    //  Create multiple if statements for the filteredData and value property variables.
     if (ValueDateTime){
       filteredData = filteredData.filter(obj => obj.datetime === ValueDateTime);
     };
@@ -74,13 +72,10 @@ function runEnter() {
     if (ValueShape){
       filteredData = filteredData.filter(obj => obj.shape.toLowerCase() === ValueShape.toLowerCase());
     };
-
-
-    //var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
-
+  //Console log the filteredData
     console.log(filteredData);
 
-//Make a function to loop through the data 
+  //Make a function to loop through the data 
     if (filteredData.length >= 1) {
       tbody.html("");
       filteredData.forEach(function(filteredUfo){
@@ -95,9 +90,9 @@ function runEnter() {
         });
       });
     }
+    //Create an alert if the search values are not viable.
     else{
       alert("No Results My Fellow Alien.")
     }
-
     };
     
